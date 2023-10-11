@@ -24,3 +24,4 @@ CREATE TABLE flyway_schema_history (
     success BOOLEAN NOT NULL
 );
 
+SELECT * FROM moderadores;

@@ -13,10 +13,15 @@ spring:
       hibernate:
         format_sql: true
 
+# Configura cómo se manejan las trazas de error en las respuestas del servidor. En este caso,
+#  las trazas de la pila ("stacktrace") no se incluirán en las respuestas.
 server:
   error:
     include-stacktrace: never
 
+# Configura la seguridad de la API. Se define un secreto (secret) para la generación y validación de tokens JWT.
+#  Se utiliza una propiedad que puede configurarse con una variable de entorno llamada JWT_SECRET o un valor
+#  predeterminado de '123456' si la variable de entorno no está definida.
 api:
   security:
     secret: ${JWT_SECRET:123456}

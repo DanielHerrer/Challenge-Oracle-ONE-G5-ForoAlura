@@ -20,18 +20,27 @@ public class SecurityFilter extends OncePerRequestFilter {
     @Autowired
     private ModeradorRepository moderadorRepository;
 
+    /**
+     * Filtra las solicitudes para autenticar a los usuarios a partir de los tokens de autorización.
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-        var autHeader = request.getHeader("Authorization");
+        // Obtiene el encabezado de autorización de la solicitud.
+        var authHeader = request.getHeader("Authorization");
 
-        if(autHeader != null) {
-            var token = autHeader.replace("Bearer ","");
+        if (authHeader != null) {
+            // Extrae el token de autorización de la cadena del encabezado.
+            var token = authHeader.replace("Bearer ", "");
+            // Obtiene el nombre de usuario del token.
             var username = tokenService.getSubject(token);
-            if(username != null) {
+            if (username != null) {
+                // Busca el usuario en el repositorio basado en el nombre de usuario.
                 var usuario = moderadorRepository.findByUsername(username);
-                var autenticacion = new UsernamePasswordAuthenticationToken(usuario,null,usuario.getAuthorities());
+                // Crea una autenticación basada en el usuario.
+                var autenticacion = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+                // Establece la autenticación en el contexto de seguridad.
                 SecurityContextHolder.getContext().setAuthentication(autenticacion);
             }
         }

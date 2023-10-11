@@ -21,32 +21,42 @@ public class SecurityConfigurations {
     private SecurityFilter securityFilter;
 
     /**
-     *   Deshabilita la protección CSRF y configura la política de gestión de sesiones como "sin estado" (STATELESS),
-     *     lo que significa que la aplicación no mantendrá información de sesión en el servidor.
+     * Configuración de la seguridad de la aplicación.
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
+                // Deshabilitar la protección CSRF (Cross-Site Request Forgery).
                 .csrf(csrf -> csrf.disable())
+                // Configura la política de gestión de sesiones como "sin estado" (STATELESS).
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // Define las reglas de autorización de las solicitudes HTTP.
                 .authorizeHttpRequests(auth -> auth
+                        // Permitir todas las solicitudes POST a la ruta "/login" sin autenticación.
                         .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                        // Permitir el acceso a rutas de Swagger y documentación API sin autenticación.
                         .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                        .anyRequest()
-                        .authenticated())
-                // añade un filtro antes de ESTE filtro usando éste tipo de autenticacion
+                        // Requerir autenticación para todas las demás solicitudes.
+                        .anyRequest().authenticated())
+                // Añadir un filtro de seguridad personalizado antes del filtro de autenticación por nombre de usuario y contraseña.
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
+    /**
+     * Configuración del administrador de autenticación.
+     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    /**
+     * Configuración del codificador de contraseñas.
+     */
     @Bean
     public PasswordEncoder passwordEncoder(){
+        // Utilizar el algoritmo de codificación de contraseñas BCrypt.
         return new BCryptPasswordEncoder();
     }
-
 }

@@ -27,7 +27,7 @@ public class AutenticacionController {
 
     @PostMapping
     @Operation(summary = "Genera JWT",
-            description = "Genera un JWT para nuestra correcta autenticación en el sistema." +
+            description = "Genera un token JWT para nuestra correcta autenticación en el sistema." +
             "Requiere: { username, password }",
             tags = "Autenticacion Controller")
     public ResponseEntity<?> autenticarModerador(@RequestBody @Valid DtoAutenticacionModerador dto) {

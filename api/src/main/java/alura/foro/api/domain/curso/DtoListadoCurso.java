@@ -1,7 +1,7 @@
 package alura.foro.api.domain.curso;
 
-public record DtoListadoCurso(String nombre, CategoriaCurso categoria) {
+public record DtoListadoCurso(Long id, String nombre, CategoriaCurso categoria) {
     public DtoListadoCurso(Curso curso) {
-        this(curso.getNombre(),curso.getCategoria());
+        this(curso.getId(), curso.getNombre(), curso.getCategoria());
     }
 }

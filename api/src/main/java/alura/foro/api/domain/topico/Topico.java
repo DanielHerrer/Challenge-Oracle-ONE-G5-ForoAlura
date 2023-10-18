@@ -5,6 +5,10 @@ import alura.foro.api.domain.respuesta.Respuesta;
 import alura.foro.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -52,6 +56,7 @@ public class Topico {
         this.estatus = estatus;
         this.autor = autor;
         this.curso = curso;
+        activo = true;
     }
 
     public void actualizarTopico(DtoActualizarTopico dto) {

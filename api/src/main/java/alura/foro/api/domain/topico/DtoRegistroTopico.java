@@ -12,8 +12,9 @@ public record DtoRegistroTopico(
         @NotBlank(message = "El mensaje es obligatorio")
         String mensaje,
 
-        @NotBlank(message = "El autor es obligatorio")
-        String autor,
+        @NotNull(message = "El ID del usuario autor es obligatorio")
+        @Valid
+        Long id_autor,
 
         @NotNull(message = "Los datos del curso son obligatorios")
         @Valid

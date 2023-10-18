@@ -18,4 +18,5 @@ public class ValidacionServicioMensajeUnico implements ValidacionPut {
             throw new ValidacionIntegridad("Este mensaje ya existe en nuestro foro");
         }
     }
+
 }

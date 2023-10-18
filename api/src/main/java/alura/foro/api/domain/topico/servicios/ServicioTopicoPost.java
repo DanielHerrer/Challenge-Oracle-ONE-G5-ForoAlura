@@ -29,14 +29,19 @@ public class ServicioTopicoPost {
         if(!cursoRepository.findByNombre(dto.curso().nombre())) {
             throw new ValidacionIntegridad("El Curso seleccionado no fue encontrado");
         }
+        if(!usuarioRepository.existsById(dto.id_autor())){
+            throw new ValidacionIntegridad("El id del usuario autor no fue encontrado");
+        }
+
         validaciones.forEach(v -> v.validacion(dto));
 
         var curso = cursoRepository.getByNombre(dto.curso().nombre());
-        var autor = usuarioRepository.getByNombre(dto.autor());
+        var autor = usuarioRepository.getReferenceById(dto.id_autor());
         var topico = new Topico(dto.titulo(), dto.mensaje(), LocalDateTime.now(), EstatusTopico.ABIERTO,
                 autor, curso);
 
         topicoRepository.save(topico);
+
         URI url = builder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
         return ResponseEntity.created(url).body(new DtoDetalleTopico(topico));
     }

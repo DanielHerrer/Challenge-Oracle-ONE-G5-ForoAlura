@@ -24,4 +24,8 @@ CREATE TABLE flyway_schema_history (
     success BOOLEAN NOT NULL
 );
 
-SELECT * FROM moderadores;
+SELECT * FROM topicos;
+
+UPDATE topicos
+SET activo = 1
+WHERE id = X;

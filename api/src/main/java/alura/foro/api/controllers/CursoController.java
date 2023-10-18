@@ -58,7 +58,7 @@ public class CursoController {
         return ResponseEntity.ok(new DtoRetornoCurso(curso.getId(), curso.getNombre(), curso.getCategoria()));
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Transactional
     @Operation(summary = "Actualizar Curso",
             description = "Modifica el curso que coincida en el ID indicado en la base de datos. " +

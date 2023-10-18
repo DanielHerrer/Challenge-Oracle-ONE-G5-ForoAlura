@@ -5,6 +5,8 @@ import alura.foro.api.domain.topico.servicios.ServicioTopicoDelete;
 import alura.foro.api.domain.topico.servicios.ServicioTopicoGet;
 import alura.foro.api.domain.topico.servicios.ServicioTopicoPost;
 import alura.foro.api.domain.topico.servicios.ServicioTopicoPut;
+import alura.foro.api.domain.usuario.DtoRetornoUsuario;
+import alura.foro.api.domain.usuario.Usuario;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -15,6 +17,8 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/topicos")
@@ -34,12 +38,14 @@ public class TopicoController {
     @Transactional
     @Operation(summary = "Crear topico",
             description = "Registra un nuevo topico en la base de datos. " +
-            "Requiere: { título, mensaje, autor, curso }",
+            "Requiere: { título, mensaje, id_autor, curso }",
             tags = "Topico Controller")
     public ResponseEntity<DtoDetalleTopico> crearTopico(@RequestBody @Valid DtoRegistroTopico dto, UriComponentsBuilder uriComponentsBuilder) {
         var topicoRespuesta = postService.crearTopico(dto, uriComponentsBuilder);
         return topicoRespuesta;
     }
+
+
 
     @GetMapping
     @ResponseBody
@@ -75,6 +81,7 @@ public class TopicoController {
 
 
     @DeleteMapping("/{id}")
+    @Transactional
     @Operation(summary = "Eliminar topico",
             description = "Desactiva el topico que coincida en el ID indicado en la base de datos. " +
                       "El ID se proporciona como parámetro en la URL de la solicitud.",

@@ -51,19 +51,19 @@ git clone https://github.com/DanielHerrer/Challenge-Oracle-ONE-G5-ForoAlura
   - Utilizando una herramienta de cliente HTTP (como <b>Insomnia</b> o <b>Postman</b>) para realizar solicitudes a la API. Utiliza la dirección <a>http://localhost:8080/</a> (o la URL que hayas configurado) como punto de acceso.
 
 :key: <b>Login</b>
-<img src="imgs/insomnia_login.jpg" alt="Login" width="800"/>
+<img src="imgs/insomnia_login.jpg" alt="Login" width="800"/><br>
 :green_book: <b>POST</b>
-<img src="imgs/insomnia_post.jpg" alt="Post" width="800"/>
+<img src="imgs/insomnia_post.jpg" alt="Post" width="800"/><br>
 :blue_book: <b>GET</b>
-<img src="imgs/insomnia_get.jpg" alt="Get" width="800"/>
+<img src="imgs/insomnia_get.jpg" alt="Get" width="800"/><br>
 :orange_book: <b>PUT</b>
-<img src="imgs/insomnia_put.jpg" alt="Put" width="800"/>
+<img src="imgs/insomnia_put.jpg" alt="Put" width="800"/><br>
 :closed_book: <b>DELETE</b>
 <img src="imgs/insomnia_delete.jpg" alt="Delete" width="800"/>
 
   - Accediendo a la documentación de la API a través de <b>Swagger UI</b>. Puedes explorar la documentación interactiva de la API que te permite entender el funcionamiento y probar las solicitudes desde la URL <a>http://localhost:8080/swagger-ui.html</a> en tu navegador.
 
-:books: <b>Controllers CRUD</b>
+:books: <b>Controllers Swagger (Login, POST, GET, PUT, DELETE)</b>
 <img src="imgs/swagger-ui_crud.jpg" alt="Swagger UI" width="800"/>
 
 **Developer** :shipit:

@@ -28,8 +28,8 @@ Además, el proyecto se encarga de validar los datos manipulados a través de fi
 
 <img src="/esquema_db.jpg" width="800"/>
 
-## :question: Cómo usar el conversor
-
+## :question: Cómo usar la API REST
+I
 <b>1.</b> Clonar el proyecto, empieza por clonar el repositorio en tu máquina local usando el siguiente comando:
 ```
 git clone https://github.com/DanielHerrer/Challenge-Oracle-ONE-G5-ForoAlura
@@ -63,7 +63,8 @@ git clone https://github.com/DanielHerrer/Challenge-Oracle-ONE-G5-ForoAlura
 
   - Accediendo a la documentación de la API a través de <b>Swagger UI</b>. Puedes explorar la documentación interactiva de la API que te permite entender el funcionamiento y probar las solicitudes desde la URL <a>http://localhost:8080/swagger-ui.html</a> en tu navegador.
 
-:books: <b>Controllers Swagger (Login, POST, GET, PUT, DELETE)</b>
+:books: <b>Controllers Swagger</b> (:key: Login, :green_book: POST, :blue_book: GET, :orange_book: PUT, :closed_book: DELETE)
+
 <img src="imgs/swagger-ui_crud.jpg" alt="Swagger UI" width="800"/>
 
 **Developer** :shipit:

@@ -52,7 +52,7 @@ public class CursoController {
     @Operation(summary = "Listar Curso",
             description = "Muestra el curso que coincida con el ID indicado en la base de datos. " +
                       "El ID se proporciona como parámetro en la URL de la solicitud.",
-            tags = "Curso Controlller")
+            tags = "Curso Controller")
     public ResponseEntity<DtoRetornoCurso> listarCurso(@PathVariable Long id) {
         Curso curso = cursoRepository.getReferenceById(id);
         return ResponseEntity.ok(new DtoRetornoCurso(curso.getId(), curso.getNombre(), curso.getCategoria()));

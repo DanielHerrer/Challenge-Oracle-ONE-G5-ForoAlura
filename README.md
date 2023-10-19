@@ -38,13 +38,13 @@ git clone https://github.com/DanielHerrer/Challenge-Oracle-ONE-G5-ForoAlura
 
 <b>3.</b> Encender el servidor, asegúrate de que tu servidor de base de datos esté activo. Dependiendo de tus preferencias y configuración, puedes utilizar SQL Server o XAMPP (enciende MySQL y apaga Tomcat).
 
-<b>4.</b> Ejecuta la consulta CREATE para la creacion del esquema de la base de datos, desde el archivo [ scripts_sql_foro_alura.sql ].
+<b>4.</b> Ejecuta la consulta CREATE para la creacion del esquema de la base de datos, desde el archivo <br>[ scripts_sql_foro_alura.sql ].
 
-<b>5.</b> Configurar la Base de Datos, asegúrate de configurar las credenciales de conexión en el archivo [ api/src/main/resources/application.yml ].
+<b>5.</b> Configurar la Base de Datos, asegúrate de configurar las credenciales de conexión en el archivo <br>[ api/src/main/resources/application.yml ].
 
-<b>6.</b> Ejecutar la Aplicación, ejecuta la aplicación Spring desde el main [ api/src/main/java/alura/foro/api/ApiApplication.java ].
+<b>6.</b> Ejecutar la Aplicación, ejecuta la aplicación Spring desde el main <br>[ api/src/main/java/alura/foro/api/ApiApplication.java ].
 
-<b>7.</b> Ejecuta la consulta INSERT para la inserción del moderador con su clave previamente encriptada, desde el archivo [ scripts_sql_foro_alura.sql ].
+<b>7.</b> Ejecuta la consulta INSERT para la inserción del moderador con su clave previamente encriptada, desde el archivo <br>[ scripts_sql_foro_alura.sql ].
 
 <b>8.</b> Acceder a la API, Una vez que la aplicación esté en funcionamiento, puedes interactuar con la API REST de las siguientes maneras:
 
